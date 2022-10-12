@@ -1,0 +1,108 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" >
+<head>
+    <meta charset="utf-8">
+    <meta http-equive="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initiol-scale=1.0" />
+    <title>Project 3</title>
+    <link rel="stylesheet" href="./css/styles.css" />
+</head>
+
+<body>
+    <script>
+        function computerPlay(){
+            let a;
+            a = Math.floor(Math.random() * 3);
+            if (a == 0) {
+                return "rock";
+            }
+            else if (a == 1) {
+                return "paper";
+            }
+            else {
+                return "scissors";
+            }
+        }
+
+        function playRound(playerSelect, compSelect) {
+
+            if (playerSelect == "rock" && compSelect == "scissors") {
+                console.log('Scissors');
+                return "Player wins!";
+            }
+
+            if (playerSelect == "rock" && compSelect == "paper") {
+                console.log('Paper');
+                return "Computer wins!";
+            }
+
+            if (playerSelect == "rock" && compSelect == "rock") {
+                console.log('Rock');
+                return "Tie";
+            }
+
+            if (playerSelect == "scissors" && compSelect == "scissors") {
+                console.log('Scissors');
+                return "Tie";
+            }
+
+            if (playerSelect == "scissors" && compSelect == "paper") {
+                console.log('Paper');
+                return "Player wins!";
+            }
+
+            if (playerSelect == "scissors" && compSelect == "rock") {
+                console.log('Rock');
+                return "Computer wins!";
+            }
+
+            if (playerSelect == "paper" && compSelect == "scissors") {
+                console.log('Scissors');
+                return "Computer wins!";
+            }
+
+            if (playerSelect == "paper" && compSelect == "paper") {
+                console.log('Paper');
+                return "Tie";
+            }
+
+            if (playerSelect == "paper" && compSelect == "rock") {
+                console.log('Rock');
+                return "Player wins!";
+            }
+        }
+
+        function game() {
+            var playerScore = 0;
+            var compScore = 0;
+            for (let i = 1; i < 5; i++) {
+                var playerInput = window.prompt();
+                playerSelect = playerInput.toLowerCase();
+                var compSelect = computerPlay();
+                var rounds=playRound(playerSelect, compSelect);             
+                if (rounds == "Player wins!") {
+                    playerScore++;
+                    console.log(`Player wins round ${i}`);
+                    console.log(`The score is ${playerScore} for Player`);
+                } else if (rounds == "Computer wins!") {
+                    compScore++;
+                    console.log(`Computer wins round ${i}`);
+                    console.log(`The score is ${compScore} for Computer`);
+                }
+            }
+            if (playerScore > compScore) {
+                return "Player wins the game!";
+            } else if (compScore > playerScore) {
+                return "All hail our A.I. Overlords!";
+            } else {
+                return "Tie";
+            }
+        }
+
+        var compSelect = computerPlay();
+        console.log(game());
+
+    </script> 
+</body>
+</html>
