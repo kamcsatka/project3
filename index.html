@@ -26,6 +26,9 @@
         }
 
         function playRound(playerSelect, compSelect) {
+              if (playerSelect ===  compSelect ) {
+                return "Tie";
+            }
 
             if (playerSelect == "rock" && compSelect == "scissors") {
                 console.log('Scissors');
@@ -37,16 +40,9 @@
                 return "Computer wins!";
             }
 
-            if (playerSelect == "rock" && compSelect == "rock") {
-                console.log('Rock');
-                return "Tie";
-            }
+           
 
-            if (playerSelect == "scissors" && compSelect == "scissors") {
-                console.log('Scissors');
-                return "Tie";
-            }
-
+          
             if (playerSelect == "scissors" && compSelect == "paper") {
                 console.log('Paper');
                 return "Player wins!";
@@ -62,10 +58,7 @@
                 return "Computer wins!";
             }
 
-            if (playerSelect == "paper" && compSelect == "paper") {
-                console.log('Paper');
-                return "Tie";
-            }
+          
 
             if (playerSelect == "paper" && compSelect == "rock") {
                 console.log('Rock');
